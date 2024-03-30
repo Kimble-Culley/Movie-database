@@ -1,10 +1,10 @@
 /**
  * @file main.cpp
- * @author Kimble Culley
+ * @author Kimble Culley and Sydney Marshall
  * @date 2024-03-28
- * @brief idk
+ * @brief manages the movie database
  * 
- * idk
+ * 
  */
 
 #include "library.h"
@@ -14,22 +14,24 @@ using namespace std;
 
 int main() {
   
-  Library movieList;
+  Library movieList; //Library class that manages the database 
 
 
 
-  int choice = 0;
+  int choice = 0; // the users menu choice
 
   string filename, directorName, movieName;
 
-
+  //welcome message and loads the data from a file 
   cout << "Welcome to your movie database! Please enter the name of the file you would like to open: ";
   cin >> filename;
 
   movieList.loadFromFile(filename);
 
+  //this is the menu and all the options for the user
   while(true){
-    cout << "Now chose from the following options: " << endl;
+    cout << "Now chose from the following options: " << endl;//user enters the number
+    //associated with the option they want to select
     cout << "(1) Read Movies from file " << endl;
     cout << "(2) Write Movies to file " << endl;
     cout << "(3) Display all movies " << endl;
@@ -39,9 +41,12 @@ int main() {
     cout << "(7) Exit this program " << endl;
     cout << "Please enter your choice now: ";
 
+    //takes user input for the choice 
     cin >> choice;
     cout << endl;
 
+    //based on user choice methods below are documented in library.h file
+    //after a choice is made, a statement then follows for a user to answer for input 
     if(choice == 1){
       cout << endl;
       cout << "Enter the file name to read from (Ex. test.txt): ";
@@ -80,6 +85,7 @@ int main() {
       cout << "Exiting program. " << endl;
       break;
     }
+    // prints if user does not input a number 1-7 
     else{
       cout << "Invalid choice, please enter a number 1-7: ";
     }
